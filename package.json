@@ -1,0 +1,19 @@
+{
+  "name": "discord-puppies",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">     <h1>discord-puppies</h1>     <h5>fun dog raising game for discord communities</h5> </div>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brokkolii/discord-puppies.git"
+  },
+  "author": "Patrick Girnghuber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brokkolii/discord-puppies/issues"
+  },
+  "homepage": "https://github.com/Brokkolii/discord-puppies#readme"
+}
