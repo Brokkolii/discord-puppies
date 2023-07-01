@@ -1,26 +1,27 @@
 {
-  "name": "discord-puppies",
-  "version": "1.0.0",
-  "description": "<div align=\"center\">     <h1>discord-puppies</h1>     <h5>fun dog raising game for discord communities</h5> </div>",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Brokkolii/discord-puppies.git"
-  },
-  "author": "Patrick Girnghuber",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Brokkolii/discord-puppies/issues"
-  },
-  "homepage": "https://github.com/Brokkolii/discord-puppies#readme",
-  "dependencies": {
-    "discord.js": "^14.11.0",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.1.6",
-    "webpack": "^5.88.1",
-    "webpack-cli": "^5.1.4"
-  }
+	"name": "discord-puppies",
+	"version": "1.0.0",
+	"description": "fun dog raising game for discord communities",
+	"main": "./dist/server.js",
+	"scripts": {
+		"build": "webpack",
+		"start": "node ./dist/server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Brokkolii/discord-puppies.git"
+	},
+	"author": "Patrick Girnghuber",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Brokkolii/discord-puppies/issues"
+	},
+	"homepage": "https://github.com/Brokkolii/discord-puppies#readme",
+	"dependencies": {
+		"discord.js": "^14.11.0",
+		"ts-loader": "^9.4.4",
+		"typescript": "^5.1.6",
+		"webpack": "^5.88.1",
+		"webpack-cli": "^5.1.4"
+	}
 }
