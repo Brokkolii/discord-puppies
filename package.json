@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Brokkolii/discord-puppies/issues"
   },
-  "homepage": "https://github.com/Brokkolii/discord-puppies#readme"
+  "homepage": "https://github.com/Brokkolii/discord-puppies#readme",
+  "dependencies": {
+    "discord.js": "^14.11.0"
+  }
 }
