@@ -1,6 +1,7 @@
 const path = require("path");
 
 module.exports = {
+	mode: "development",
 	entry: "./src/server.ts",
 	module: {
 		rules: [
