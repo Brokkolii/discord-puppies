@@ -1,7 +1,8 @@
 import { Client, GatewayIntentBits } from "discord.js";
 import { Routes } from "discord-api-types/v9";
 import { rest } from "./utils/rest";
-import { commands } from "./commands";
+import { commands, actions } from "./commands";
+import { DISCORD_BOT_TOKEN } from "./utils/env";
 
 export const client = new Client({
 	intents: [GatewayIntentBits.Guilds],
@@ -26,11 +27,21 @@ client.once("ready", async () => {
 client.on("interactionCreate", async (interaction) => {
 	if (!interaction.isCommand()) return;
 
-	if (interaction.commandName === "puppies") {
-		await interaction.reply("puppy!");
+	const action = actions[interaction.commandName];
+
+	if (action) {
+		try {
+			await action(interaction);
+		} catch (error) {
+			console.error(error);
+			interaction.reply("error!");
+		}
+	} else {
+		console.error("action not found");
+		interaction.reply("action not found");
 	}
 });
 
 export const start = () => {
-	client.login(process.env.DISCORD_BOT_TOKEN);
+	client.login(DISCORD_BOT_TOKEN);
 };

@@ -2,11 +2,11 @@
 	"name": "discord-puppies",
 	"version": "1.0.0",
 	"description": "fun dog raising game for discord communities",
-	"main": "./dist/server.js",
+	"main": "./dist/index.js",
 	"scripts": {
 		"build": "tsc",
-		"start": "node ./dist/server.js",
-		"dev": "tsc-watch --onSuccess \"node ./dist/server.js\""
+		"start": "node ./dist/index.js",
+		"dev": "tsc-watch --onSuccess \"node ./dist/index.js\""
 	},
 	"repository": {
 		"type": "git",

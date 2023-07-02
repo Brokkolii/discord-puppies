@@ -1,10 +1,8 @@
 import { REST } from "@discordjs/rest";
+import { DISCORD_BOT_TOKEN } from "./env";
 
-const token = process.env.DISCORD_BOT_TOKEN;
+export let rest = new REST();
 
-let restX = undefined;
-if (token) {
-	restX = new REST({ version: "9" }).setToken(token);
+if (DISCORD_BOT_TOKEN) {
+	rest = new REST({ version: "9" }).setToken(DISCORD_BOT_TOKEN);
 }
-
-export const rest = restX;
