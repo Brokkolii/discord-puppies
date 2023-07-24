@@ -9,7 +9,10 @@ export const adopt = {
 export const adoptAction = async (interaction: CommandInteraction) => {
     console.log(interaction);
     const owner = interaction.user;
-    const puppy = puppyService.adoptPuppy(owner);
-
-    interaction.reply(puppy.owner.username + " adopted " + puppy.name);
+    try {
+        const puppy = puppyService.adoptPuppy(owner);
+        interaction.reply(puppy.owner.username + " adopted " + puppy.name);
+    } catch (error: any) {
+        interaction.reply(error.message);
+    }
 };
