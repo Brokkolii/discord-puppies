@@ -7,6 +7,7 @@ export const puppies = {
 };
 
 export const puppiesAction = async (interaction: CommandInteraction) => {
+    console.log(interaction);
     const owner = interaction.user;
     let reply = ".";
     try {

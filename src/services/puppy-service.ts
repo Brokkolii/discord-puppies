@@ -25,8 +25,13 @@ function adoptPuppy(owner: User): Puppy {
     }
 }
 
-function releasePuppy(id: string) {
-    removePuppy(id);
+function releasePuppy(name: string, owner: User) {
+    const puppy = getPuppyByName(name, owner);
+    if (puppy) {
+        removePuppy(puppy);
+    } else {
+        throw new Error("Puppy does not exist.");
+    }
 }
 
 function renamePuppy(oldName: string, newName: string, owner: User) {
@@ -34,6 +39,8 @@ function renamePuppy(oldName: string, newName: string, owner: User) {
     if (puppy) {
         puppy.name = newName;
         persistPuppy(puppy);
+    } else {
+        throw new Error("Puppy does not exist.");
     }
 }
 
@@ -56,9 +63,9 @@ function persistPuppy(newPuppy: Puppy) {
     db.saveData(data);
 }
 
-function removePuppy(id: string) {
+function removePuppy(removePuppy: Puppy) {
     const data = db.readData();
-    data.puppies.filter((puppy) => puppy.id === id);
+    data.puppies.filter((puppy) => puppy.id === removePuppy.id);
     db.saveData(data);
 }
 
