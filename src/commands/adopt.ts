@@ -1,30 +1,15 @@
-import { CommandInteraction } from "discord.js";
+import { CommandInteraction, User } from "discord.js";
+import { puppyService } from "../services/puppy-service";
 
 export const adopt = {
-	name: "adopt",
-	description: "adopt a puppy",
+    name: "adopt",
+    description: "adopt a puppy",
 };
 
 export const adoptAction = async (interaction: CommandInteraction) => {
-	const puppy = generatePuppy();
-	interaction.reply(puppy.name);
+    console.log(interaction);
+    const owner = interaction.user;
+    const puppy = puppyService.adoptPuppy(owner);
+
+    interaction.reply(puppy.owner.username + " adopted " + puppy.name);
 };
-
-interface Puppy {
-	name: string;
-}
-
-const names = ["eddie", "name1", "name2"];
-
-//TODO:
-//- generate uuid for puppy
-//- save puppy
-//- save owner
-//- only adopt if you dont own a puppy
-//- more properties
-function generatePuppy(): Puppy {
-	const name = names[Math.floor(Math.random() * names.length)];
-	return {
-		name,
-	};
-}
