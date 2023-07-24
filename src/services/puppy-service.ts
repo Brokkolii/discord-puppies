@@ -46,6 +46,11 @@ function renamePuppy(oldName: string, newName: string, owner: User) {
 
 function getPuppyByName(name: string, user: User) {
     const { puppies } = db.readData();
+    console.log("-------------------------");
+    console.log(puppies);
+    console.log(name);
+    console.log(user);
+    console.log("-------------------------");
     return puppies.find(
         (puppy) => puppy.name === name && puppy.owner.id === user.id
     );
