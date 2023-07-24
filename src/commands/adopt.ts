@@ -7,7 +7,6 @@ export const adopt = {
 };
 
 export const adoptAction = async (interaction: CommandInteraction) => {
-    console.log(interaction);
     const owner = interaction.user;
     try {
         const puppy = puppyService.adoptPuppy(owner);
