@@ -5,43 +5,43 @@ import { commands, actions } from "./commands";
 import { DISCORD_BOT_TOKEN } from "./utils/env";
 
 export const client = new Client({
-	intents: [GatewayIntentBits.Guilds],
+    intents: [GatewayIntentBits.Guilds],
 });
 
 client.once("ready", async () => {
-	console.log("connected as: " + client.user?.tag);
+    console.log("connected as: " + client.user?.tag);
 
-	try {
-		await rest?.put(
-			Routes.applicationGuildCommands(
-				"1124819354387759164",
-				"1124819151626715327"
-			),
-			{ body: commands }
-		);
-	} catch (error) {
-		console.error(error);
-	}
+    try {
+        await rest?.put(
+            Routes.applicationGuildCommands(
+                "1124819354387759164",
+                "1124819151626715327"
+            ),
+            { body: commands }
+        );
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 client.on("interactionCreate", async (interaction) => {
-	if (!interaction.isCommand()) return;
+    if (!interaction.isCommand()) return;
+    console.log("test");
+    const action = actions[interaction.commandName];
 
-	const action = actions[interaction.commandName];
-
-	if (action) {
-		try {
-			await action(interaction);
-		} catch (error) {
-			console.error(error);
-			interaction.reply("error!");
-		}
-	} else {
-		console.error("action not found");
-		interaction.reply("action not found");
-	}
+    if (action) {
+        try {
+            await action(interaction);
+        } catch (error) {
+            console.error(error);
+            interaction.reply("error!");
+        }
+    } else {
+        console.error("action not found");
+        interaction.reply("action not found");
+    }
 });
 
 export const start = () => {
-	client.login(DISCORD_BOT_TOKEN);
+    client.login(DISCORD_BOT_TOKEN);
 };
